@@ -1,0 +1,10 @@
+<div 
+[ngClass]="['step' + fontSizeIndex,
+            'word-label',
+             textColor]"
+[style.transform]="'translateY(' + randomPositioningIndex + '%)'"
+(click)="transferMetadata()">
+    
+    {{topic.label}}
+
+</div>

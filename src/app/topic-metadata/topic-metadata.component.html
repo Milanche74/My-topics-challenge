@@ -1,0 +1,21 @@
+<!--displays metadata component only when its metadata property is defined-->
+
+
+<div *ngIf="metadata" class="metadata-container">
+    <h2 class="metadata-header" [style.backgroundColor]="'var(--clr-'+ metadata.color+')'">Information on topic: <br>"{{metadata.label}}":</h2>
+    
+    <ul class="information-list">
+        <li class="information-item">Total Mentions: <span [ngClass]="metadata.color">{{metadata.volume}}</span></li>
+        
+        <li  class="information-item">Positive Mentions: <span class="green">{{metadata.sentiment.positive}}</span></li>
+        <li  class="information-item">Neutral Mentions: <span class="grey">{{metadata.sentiment.neutral}}</span></li>
+        <li  class="information-item">Negative Mentions: <span class="red">{{metadata.sentiment.negative}}</span></li>
+    </ul>
+
+
+</div>
+
+<!-- had some doubts whether I should use this directives to omit list item which value is undefined
+*ngIf="metadata.sentiment.positive"
+*ngIf="metadata.sentiment.neutral"
+*ngIf="metadata.sentiment.negative" -->

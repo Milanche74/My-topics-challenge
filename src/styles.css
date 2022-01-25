@@ -1,1 +1,118 @@
-/* You can add global styles to this file, and also import other style files */
+  /* implemented fluid responisve typography measurements using Utopia calculator from https://utopia.fyi
+   Code could've been reduced with the usage of clamp property, but this solution has wider browser support 
+   */
+   :root {
+    --fluid-min-width: 320;
+    --fluid-max-width: 1340;
+  
+    --fluid-screen: 100vw;
+    --fluid-bp: calc(
+      (var(--fluid-screen) - var(--fluid-min-width) / 16 * 1rem) /
+        (var(--fluid-max-width) - var(--fluid-min-width))
+    );
+  }
+  
+  @media screen and (min-width: 1340px) {
+    :root {
+      --fluid-screen: calc(var(--fluid-max-width) * 1px);
+    }
+  }
+  
+  :root {
+    --f--2-min: 6.94;
+    --f--2-max: 8.00;
+    --step--2: calc(
+      ((var(--f--2-min) / 16) * 1rem) + (var(--f--2-max) - var(--f--2-min)) *
+        var(--fluid-bp)
+    );
+  
+    --f--1-min: 8.33;
+    --f--1-max: 11.32;
+    --step--1: calc(
+      ((var(--f--1-min) / 16) * 1rem) + (var(--f--1-max) - var(--f--1-min)) *
+        var(--fluid-bp)
+    );
+  
+    --f-0-min: 10.00;
+    --f-0-max: 16.00;
+    --step-0: calc(
+      ((var(--f-0-min) / 16) * 1rem) + (var(--f-0-max) - var(--f-0-min)) *
+        var(--fluid-bp)
+    );
+  
+    --f-1-min: 12.00;
+    --f-1-max: 22.62;
+    --step-1: calc(
+      ((var(--f-1-min) / 16) * 1rem) + (var(--f-1-max) - var(--f-1-min)) *
+        var(--fluid-bp)
+    );
+  
+    --f-2-min: 14.40;
+    --f-2-max: 31.99;
+    --step-2: calc(
+      ((var(--f-2-min) / 16) * 1rem) + (var(--f-2-max) - var(--f-2-min)) *
+        var(--fluid-bp)
+    );
+  
+    --f-3-min: 17.28;
+    --f-3-max: 45.23;
+    --step-3: calc(
+      ((var(--f-3-min) / 16) * 1rem) + (var(--f-3-max) - var(--f-3-min)) *
+        var(--fluid-bp)
+    );
+  
+    --f-4-min: 20.74;
+    --f-4-max: 63.96;
+    --step-4: calc(
+      ((var(--f-4-min) / 16) * 1rem) + (var(--f-4-max) - var(--f-4-min)) *
+        var(--fluid-bp)
+    );
+  
+    --f-5-min: 24.88;
+    --f-5-max: 90.44;
+    --step-5: calc(
+      ((var(--f-5-min) / 16) * 1rem) + (var(--f-5-max) - var(--f-5-min)) *
+        var(--fluid-bp)
+    );
+
+
+
+    /* custom property for specific colours */
+
+    --clr-red: rgb(187, 0, 0);
+    --clr-green: rgb(0, 230, 11);
+    --clr-grey: rgb(128, 128, 128);
+  }
+
+  *,
+  app-root {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+
+  /* helper classes */
+
+  .red {
+    color: var(--clr-red)
+  }
+
+  .green {
+    color: var(--clr-green)
+  }
+
+  .grey {
+    color: var(--clr-grey);
+  } 
+
+  app-root {
+    
+    min-height: 100vh;
+
+  }
+  
+
+  /* app-word:nth-of-type(5) {
+    color: red;
+  } */
