@@ -2,6 +2,8 @@
 <div class="word-cloud">
     <app-word 
         *ngFor="let topic of topics; let i = index"
-        [topic]="topic">
+        [topic]="topic"
+        (click)="selectTopic(topic)"
+        [class.word-label-active]="selectedTopic === topic">        
     </app-word>
 </div>

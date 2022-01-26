@@ -25,16 +25,4 @@
     cursor: pointer;
     transition: all .5s ease;
 }
-.word-label.red:hover {
-    text-shadow: 2px 2px 3px rgb(187, 0, 0); 
-}
-.word-label.green:hover {
-    text-shadow: 2px 2px 3px rgb(0, 230, 11); 
-}
-.word-label.grey:hover {
-    text-shadow: 2px 2px 3px gray; 
-}
 
-/* .word-label:hover {
-    text-shadow: 2px 2px 2px gray;
-} */

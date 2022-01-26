@@ -1,5 +1,5 @@
 .metadata-container {
-    box-shadow: 1px 2px 5px 1px rgb(190, 190, 190);
+    box-shadow: 4px 3px 5px 1px rgb(190, 190, 190);
 }
 
 
@@ -13,7 +13,7 @@
 
 .information-list {
     list-style: none;
-    padding: 10vh 2vw;
+    padding: 5vh 2vw 10vh;
 }
 
 .information-item {

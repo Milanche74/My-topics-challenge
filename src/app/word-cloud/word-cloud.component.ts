@@ -10,6 +10,7 @@ import { Topic } from '../interfaces';
 export class WordCloudComponent implements OnInit {
 
   public topics: Topic[] = [];
+  public selectedTopic?: Topic;
 
   ngOnInit(): void {
     this.dataHandler.getData()
@@ -35,11 +36,16 @@ export class WordCloudComponent implements OnInit {
 
     // And swap it with the current element.
     [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
-  }
+   }
 
   return array;
 
   }
+
+  selectTopic(topic:Topic) {
+    this.selectedTopic = topic;
+  }
+
 
   constructor(
     private dataHandler: DataHandlerService

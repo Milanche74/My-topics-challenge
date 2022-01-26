@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientTestingModule} from '@angular/common/http/testing';
 import { TopicMetadataComponent } from './topic-metadata.component';
 
 describe('TopicMetadataComponent', () => {
@@ -8,7 +8,8 @@ describe('TopicMetadataComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TopicMetadataComponent ]
+      declarations: [ TopicMetadataComponent ],
+      imports: [HttpClientTestingModule]
     })
     .compileComponents();
   });

@@ -104,8 +104,13 @@
 
   .grey {
     color: var(--clr-grey);
+  }
+  .word-label:hover,
+  .word-label-active {
+    text-shadow: 5px 4px 2px rgb(190, 190, 190); 
+    transition: all 0.4s ease;
   } 
-
+  
   app-root {
     min-height: 100vh;
     display: flex;

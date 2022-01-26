@@ -1,7 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Topic, Metadata } from '../interfaces';
 import { DataHandlerService } from '../data-handler.service';
-import { CloneVisitor } from '@angular/compiler/src/i18n/i18n_ast';
+import { TopicMetadataComponent } from '../topic-metadata/topic-metadata.component';
+
 
 @Component({
   selector: 'app-word',
@@ -20,11 +21,43 @@ export class WordComponent implements OnInit {
   constructor(
     private dataHandler: DataHandlerService
   ) { }
-
+ 
   ngOnInit(): void {
     
-    // checks popularity of each topic and gives it a proper font size index
-    // and assigns value for random positioning of smaller words
+   
+    if(this.topic) {
+      
+      this.determineVolume();
+
+      this.determineSentimentalScore();
+    }    
+  }
+
+
+  transferMetadata() {
+    const metadata: Metadata = {
+      label: this.topic.label,
+      volume: this.topic.volume,
+      sentiment: {
+        negative: this.topic.sentiment.negative | 0,
+        neutral: this.topic.sentiment.neutral | 0,
+        positive: this.topic.sentiment.positive | 0
+      },
+      color: this.textColor
+    }
+    
+
+    this.dataHandler.transferMetadata(metadata);
+  }
+
+
+  // auxiliary methods used to determine topic's sentimental score & volume
+
+
+  // checks popularity of each topic and gives it a proper font size index
+  // and assigns value for random positioning of smaller words
+
+  determineVolume() {
     
     if(this.topic.volume >= 5 && this.topic.volume < 10) {
       this.fontSizeIndex = 1;
@@ -49,34 +82,20 @@ export class WordComponent implements OnInit {
       this.randomPositioningIndex = Math.floor(Math.random() * -100).toString();
     }
     console.log(this.topic)
-
+  }
 
     //checks sentimental score and assigns color accordingly
 
-    if(this.topic.sentimentScore > 60) {
-      this.textColor = 'green';
-    }
-    else if(this.topic.sentimentScore < 40) {
-      this.textColor = 'red'
-    }
-    // console.log(this.textColor, this.topic.sentimentScore)
+  determineSentimentalScore() {
 
-  }
-
-
-  transferMetadata() {
-    const metadata: Metadata = {
-      label: this.topic.label,
-      volume: this.topic.volume,
-      sentiment: {
-        negative: this.topic.sentiment.negative | 0,
-        neutral: this.topic.sentiment.neutral | 0,
-        positive: this.topic.sentiment.positive | 0
-      },
-      color: this.textColor
-    }
-
-    this.dataHandler.transferMetadata(metadata);
+      if(this.topic.sentimentScore > 60) {
+        this.textColor = 'green';
+      }
+      else if(this.topic.sentimentScore < 40) {
+        this.textColor = 'red'
+      }
+      // console.log(this.textColor, this.topic.sentimentScore)
+  
   }
 
 }
