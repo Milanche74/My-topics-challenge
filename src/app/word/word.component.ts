@@ -39,9 +39,9 @@ export class WordComponent implements OnInit {
       label: this.topic.label,
       volume: this.topic.volume,
       sentiment: {
-        negative: this.topic.sentiment.negative | 0,
-        neutral: this.topic.sentiment.neutral | 0,
-        positive: this.topic.sentiment.positive | 0
+        negative: this.topic.sentiment.negative! | 0,
+        neutral: this.topic.sentiment.neutral! | 0,
+        positive: this.topic.sentiment.positive! | 0
       },
       color: this.textColor
     }
@@ -81,7 +81,7 @@ export class WordComponent implements OnInit {
     else {
       this.randomPositioningIndex = Math.floor(Math.random() * -100).toString();
     }
-    console.log(this.topic)
+    // console.log(this.topic)
   }
 
     //checks sentimental score and assigns color accordingly

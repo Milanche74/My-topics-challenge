@@ -17,7 +17,18 @@
 }
 
 .information-item {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: baseline;
+}
+
+
+
+.information-item .information-item-header {
     font-size: var(--step-0);
+    /* margin-right: auto; */
+    
 }
 
 .information-item:nth-of-type(1) {
@@ -28,8 +39,10 @@
 }
 
 .information-item span {
+    display: inline-block;
     font-size: var(--step-1);
-    margin-left: .5vw;
+    margin: 0 0vw 0 .5vw;
+    
 }
 
 .centered-text {

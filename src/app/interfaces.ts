@@ -4,9 +4,9 @@ export interface Topic {
     volume: number,
     type: string,
     sentiment: {
-        negative: number,
-        neutral: number,
-        positive: number
+        negative?: number,
+        neutral?: number,
+        positive?: number
     }
     sentimentScore: number,
     burst: number,

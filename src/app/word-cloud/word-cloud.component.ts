@@ -16,7 +16,7 @@ export class WordCloudComponent implements OnInit {
     this.dataHandler.getData()
     .subscribe(data => {
       this.topics = this.shuffleArray(data);
-      console.log(data)
+      // console.log(data)
       
       
     })

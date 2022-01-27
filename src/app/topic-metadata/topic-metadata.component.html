@@ -7,11 +7,27 @@
     </h2>
     
     <ul class="information-list">
-        <li class="information-item">Total Mentions: <span [ngClass]="metadata.color">{{metadata.volume}}</span></li>
         
-        <li  class="information-item">Positive Mentions: <span class="green">{{metadata.sentiment.positive}}</span></li>
-        <li  class="information-item">Neutral Mentions: <span class="grey">{{metadata.sentiment.neutral}}</span></li>
-        <li  class="information-item">Negative Mentions: <span class="red">{{metadata.sentiment.negative}}</span></li>
+        <li class="information-item">
+            <h3 class="information-item-header">Total Mentions:</h3>
+            <span [ngClass]="metadata.color">{{metadata.volume}}</span>
+        </li>
+        
+        <li  class="information-item">
+            <h3 class="information-item-header">Positive Mentions:</h3>
+            <span class="green">{{metadata.sentiment.positive}}</span>
+        </li>
+        
+        <li  class="information-item">
+            <h3 class="information-item-header">Neutral Mentions:</h3>
+            <span class="grey">{{metadata.sentiment.neutral}}</span>
+        </li>
+        
+        <li  class="information-item">
+            <h3 class="information-item-header">Negative Mentions:</h3> 
+            <span class="red">{{metadata.sentiment.negative}}</span>
+        </li>
+
     </ul>
 
 
