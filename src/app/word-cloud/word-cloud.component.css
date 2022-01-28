@@ -4,11 +4,41 @@
     justify-content: center;
     width: 70vw;
     transform: scale(1);
-    transition: all 10s;
+    animation: cloudAnimation 2s linear ;
+    transition: all 0s;
+}
+
+
+@keyframes cloudAnimation {
+    0% {transform: scale(0.2)}
+    15% {transform: scale(0.6)}
+    27% {transform: scale(0.9)}
+    33% {transform: scale(1.05)}
+    38% {transform: scale(1.05)}
+    55% {transform: scale(0.96)}
+    60% {transform: scale(0.95)}
+    70% {transform: scale(0.96)}
+    
+    100% {transform: scale(1)}
+
+    
+}
+
+.loading-indicator {
+    width: min-content;
+    font-size: var(--step-2);
+    color: var(--clr-grey);
+    border-left: 2px solid var(--clr-grey);
+    padding-left: 5px;
 }
 
 /* .scale-up-cloud {
     transform: scale(1);
 } */
+@media screen and (max-width: 700px) {
+    .word-cloud {
+        width: 90vw;
+    }
+}
 
 

@@ -7,3 +7,7 @@
         [class.word-label-active]="selectedTopic === topic">        
     </app-word>
 </div>
+
+<!--some request take a long tome to respond so this div will indicate 
+    to the user that loading is in process-->
+<div *ngIf="!topics.length" class="loading-indicator"> Loading...</div>

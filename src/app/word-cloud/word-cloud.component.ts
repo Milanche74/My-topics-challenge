@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataHandlerService } from '../data-handler.service';
 import { Topic } from '../interfaces';
+import { MessageService } from '../message.service';
 
 @Component({
   selector: 'app-word-cloud',
@@ -19,7 +20,6 @@ export class WordCloudComponent implements OnInit {
     .subscribe(data => {
       this.topics = this.shuffleArray(data);
       // console.log(data)
-      
       
     })
   }
@@ -51,7 +51,8 @@ export class WordCloudComponent implements OnInit {
 
 
   constructor(
-    private dataHandler: DataHandlerService
+    private dataHandler: DataHandlerService,
+    public messageService: MessageService
   ) { }
 
  

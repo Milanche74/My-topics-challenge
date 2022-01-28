@@ -107,7 +107,7 @@
   }
   .word-label:hover,
   .word-label-active {
-    text-shadow: 5px 4px 2px rgb(190, 190, 190); 
+    text-shadow: 5px 4px 3px rgb(207, 207, 207); 
     transition: all 0.4s ease;
   } 
   
