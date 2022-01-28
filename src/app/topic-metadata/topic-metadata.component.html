@@ -2,7 +2,7 @@
 
 
 <div *ngIf="metadata" class="metadata-container">
-    <h2 class="metadata-header" [style.backgroundColor]="'var(--clr-'+ metadata.color+')'">
+    <h2 class="metadata-header" [style.backgroundColor]="'var(--clr-'+ metadata.color+')'"> 
         Information on topic: <span class="centered-text">{{metadata.label}}</span>
     </h2>
     
@@ -34,6 +34,7 @@
 </div>
 
 <!-- had some doubts whether I should use this directives to omit list item which value is undefined
+     because some of the topics don't have all of the sentiments defined
 *ngIf="metadata.sentiment.positive"
 *ngIf="metadata.sentiment.neutral"
 *ngIf="metadata.sentiment.negative" -->

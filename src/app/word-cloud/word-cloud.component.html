@@ -1,5 +1,5 @@
 
-<div class="word-cloud">
+<div class="word-cloud" [ngClass]="{'scale-up-cloud': scaleUpCloud}">
     <app-word 
         *ngFor="let topic of topics; let i = index"
         [topic]="topic"

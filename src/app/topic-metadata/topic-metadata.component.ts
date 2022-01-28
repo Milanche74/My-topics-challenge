@@ -9,7 +9,7 @@ import { Metadata } from '../interfaces';
   templateUrl: './topic-metadata.component.html',
   styleUrls: ['./topic-metadata.component.css']
 })
-export class TopicMetadataComponent implements OnInit {
+export class TopicMetadataComponent implements OnInit { 
 
   public metadata: Metadata | null = null;
   private subsription: Subscription;
@@ -17,10 +17,10 @@ export class TopicMetadataComponent implements OnInit {
   constructor(
     private dataHandler: DataHandlerService
   ) {
-    this.subsription = dataHandler.metadata$.subscribe(
+    this.subsription = dataHandler.metadata$?.subscribe(
       metadata => {
         this.metadata = metadata;
-        console.log(this.metadata)
+        // console.log(this.metadata)
       }
     )
    }

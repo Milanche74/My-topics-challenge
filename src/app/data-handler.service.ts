@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, of, Subject } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Topic, Metadata } from './interfaces';
+import { MessageService } from './message.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,8 @@ export class DataHandlerService {
   metadata$ = this.metadataSource.asObservable();
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private message: MessageService
   ) { }
 
   getData(): Observable<Topic[]> {
@@ -38,7 +40,8 @@ export class DataHandlerService {
   handleError<T>(operation = 'operation', result?: T) {
     return (error:any) : Observable<T> => {
       console.error(error);
-      console.log(`${operation} failed: ${error.message}`)
+      this.message.newMessage(`${operation} failed: ${error.message}`);
+      console.log(this.message.messages)
       return of(result as T);
     }
   }

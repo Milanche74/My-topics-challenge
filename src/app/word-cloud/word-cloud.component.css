@@ -3,7 +3,12 @@
     flex-wrap: wrap;
     justify-content: center;
     width: 70vw;
-    
+    transform: scale(1);
+    transition: all 10s;
 }
+
+/* .scale-up-cloud {
+    transform: scale(1);
+} */
 
 

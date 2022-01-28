@@ -12,6 +12,8 @@ export class WordCloudComponent implements OnInit {
   public topics: Topic[] = [];
   public selectedTopic?: Topic;
 
+  public scaleUpCloud: boolean = false;
+
   ngOnInit(): void {
     this.dataHandler.getData()
     .subscribe(data => {
@@ -22,9 +24,10 @@ export class WordCloudComponent implements OnInit {
     })
   }
 
+  
   //Fisher-Yates Shuffle method
   shuffleArray(array: any[]): Topic[] {
-    let currentIndex = array.length;
+    let currentIndex = array.length; 
     let randomIndex;
 
     // While there remain elements to shuffle...

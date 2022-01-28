@@ -28,6 +28,7 @@ describe('HttpClient testing', ()=> {
 
 
     it('HttpCLient.get returns correct data', ()=>{
+        
         const testData: Topic[] = [ {
                     id: "1751295897__Berlin",
                     label: "Berlin",
@@ -151,10 +152,20 @@ describe('HttpClient testing', ()=> {
         }];
 
         httpClient.get<Topic[]>(testUrl)
-            .subscribe(topics =>
-                expect(topics).toEqual(testData))
+            .subscribe(topics =>{
+                expect(topics).toEqual(testData);
+                expect(topics.length).toEqual(testData.length)
+            }
+                
+                
+        );
+
+        const request = httpTestingController.expectOne('/topics');
+
+        expect(request.request.method).toEqual('GET');
+
+        request.flush(testData);  
+
     });
-
-
 
 })

@@ -42,7 +42,7 @@ export class WordComponent implements OnInit {
         negative: this.topic.sentiment.negative! | 0,
         neutral: this.topic.sentiment.neutral! | 0,
         positive: this.topic.sentiment.positive! | 0
-      },
+      }, 
       color: this.textColor
     }
     
@@ -64,15 +64,15 @@ export class WordComponent implements OnInit {
 
       this.randomPositioningIndex = Math.floor(Math.random() * -50).toString()
     } 
-    else if(this.topic.volume > 10 && this.topic.volume < 15) {
+    else if(this.topic.volume >= 10 && this.topic.volume < 15) {
       this.fontSizeIndex = 2;
       
       this.randomPositioningIndex = Math.floor(Math.random() * -25).toString()
     } 
-    else if(this.topic.volume > 15 && this.topic.volume < 25) {
+    else if(this.topic.volume >= 15 && this.topic.volume < 25) {
       this.fontSizeIndex = 3;
     } 
-    else if(this.topic.volume > 25 && this.topic.volume < 50) {
+    else if(this.topic.volume >= 25 && this.topic.volume < 50) {
       this.fontSizeIndex = 4;
     } 
     else if(this.topic.volume > 50) {
