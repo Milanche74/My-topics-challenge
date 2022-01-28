@@ -4,26 +4,25 @@
     justify-content: center;
     width: 70vw;
     transform: scale(1);
-    animation: cloudAnimation 2s linear ;
+    animation: cloudAnimation 1s linear ;
     transition: all 0s;
+   
 }
 
 /* */ 
 
 
 @keyframes cloudAnimation {
-    0% {transform: scale(0.2)}
-    15% {transform: scale(0.6)}
-    27% {transform: scale(0.9)}
-    33% {transform: scale(1.05)}
-    38% {transform: scale(1.05)}
-    55% {transform: scale(0.96)}
-    60% {transform: scale(0.95)}
-    70% {transform: scale(0.96)}
-    
-    100% {transform: scale(1)}
+    0% {transform: scale(0.2);
+        opacity:0}
+    40% {transform: scale(0.95)}
 
+    60% {transform: scale(1.03)}
+
+    70% {transform: scale(1.02)}
     
+    100% {transform: scale(1); 
+          opacity: 1;}    
 }
 
 .loading-indicator {
@@ -35,11 +34,12 @@
     animation: loader 5s linear 0s 3;
 }
 
-/* besides more attractive appereance, this animation will ensure that loader indicator doesn't 
-   appear on the screen for the first 500ms of the API call*/
+/* 
+ besides more attractive appereance, this animation will ensure that loader indicator doesn't 
+appear on the screen for the first 500ms of the API call*/
 
 @keyframes loader {
-    0% {opacity: 0;}
+     0% {opacity: 0;}
     25% { opacity: 0;}
     40% {opacity: 1;}
     60% { opacity: .5;}
@@ -47,9 +47,8 @@
     100% {opacity: 0;}
 }
 
-/* .scale-up-cloud {
-    transform: scale(1);
-} */
+
+
 @media screen and (max-width: 700px) {
     .word-cloud {
         width: 90vw;

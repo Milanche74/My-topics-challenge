@@ -1,4 +1,4 @@
-  /* implemented fluid responisve typography measurements using Utopia calculator from https://utopia.fyi
+   /* implemented fluid responisve typography measurements using Utopia calculator from https://utopia.fyi
    Code could've been reduced with the usage of clamp property, but this solution has wider browser support 
    */
    :root {
@@ -9,8 +9,8 @@
     --fluid-bp: calc(
       (var(--fluid-screen) - var(--fluid-min-width) / 16 * 1rem) /
         (var(--fluid-max-width) - var(--fluid-min-width))
-    );
-  }
+     );
+   }
   
   @media screen and (min-width: 1340px) {
     :root {
@@ -84,6 +84,9 @@
     --clr-grey: rgb(128, 128, 128);
   }
 
+
+
+
   *,
   app-root {
     padding: 0;
@@ -115,9 +118,10 @@
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    background: rgb(255,255,255);
+    background: radial-gradient(circle, rgba(255,255,255,1) 0%,rgba(255,255,255,1) 40%, rgba(235,235,235,1) 90%, rgb(220,220,220) 100%);
   }
   
-
 /* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
 
 @media (prefers-reduced-motion: reduce) {

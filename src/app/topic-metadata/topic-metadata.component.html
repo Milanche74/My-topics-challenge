@@ -1,5 +1,6 @@
-<!--displays metadata component only when its metadata property is defined-->
+<!--displays metadata component only when its metadata property is defined and sets placeholder when it's not-->
 
+<div class="placeholder" *ngIf="!metadata">Click on desired topic to learn more!</div>
 
 <div *ngIf="metadata" class="metadata-container">
     <h2 class="metadata-header" [style.backgroundColor]="'var(--clr-'+ metadata.color+')'"> 
