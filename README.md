@@ -5,7 +5,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## About
 App was made using Angular 12.1.5. 
 My Topics Challenge is an app that displays information on certain social media topics. Data was obtained from db.json file via JSON Server (mock REST API - details on setup are noted below). 
-This projcet implements many Angular features such as HTTP Client request and observable streams of data, as well as overall modular structuring
+This project implements many Angular features such as HTTP Client request and observable streams of data, as well as overall modular structuring
 of the application architecture.
 Angular has Jasmine framework built in, so it is suitable for testing.
 
