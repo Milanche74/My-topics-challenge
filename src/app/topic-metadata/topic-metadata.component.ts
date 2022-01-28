@@ -11,9 +11,12 @@ import { Metadata } from '../interfaces';
 })
 export class TopicMetadataComponent implements OnInit { 
 
+  // set initial falsy value of metadata property so that ngIf statement of the markup doesn't evaluate to true;
   public metadata: Metadata | null = null;
+  
   private subsription: Subscription;
 
+  // define subscription to DataHandlerService's metadata observable property when component is created
   constructor(
     private dataHandler: DataHandlerService
   ) {
@@ -28,7 +31,7 @@ export class TopicMetadataComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // preventing memory leak
+  // preventing memory leak ### IMPORTANT ###
   ngOnDestroy(): void {
     this.subsription.unsubscribe();
   }

@@ -9,10 +9,12 @@
 
     <app-topic-metadata></app-topic-metadata>
 
+    <!-- displays error message only if one is sent to MessageService-->
+    
     <div class="errors-message" *ngIf="messageService.messages.length">
         <div class="error-text" *ngFor="let message of messageService.messages">{{message}}</div>
         <div (click)="messageService.emptyMessages()" class="exit-error-message">Close</div>
     </div>
 </main>
     
-<footer>Milanche_74. All rigths reserved</footer>
+<footer><a href="https://github.com/Milanche74">https://github.com/Milanche74</a></footer>

@@ -8,6 +8,8 @@
     transition: all 0s;
 }
 
+/* */ 
+
 
 @keyframes cloudAnimation {
     0% {transform: scale(0.2)}
@@ -30,6 +32,19 @@
     color: var(--clr-grey);
     border-left: 2px solid var(--clr-grey);
     padding-left: 5px;
+    animation: loader 5s linear 0s 3;
+}
+
+/* besides more attractive appereance, this animation will ensure that loader indicator doesn't 
+   appear on the screen for the first 500ms of the API call*/
+
+@keyframes loader {
+    0% {opacity: 0;}
+    25% { opacity: 0;}
+    40% {opacity: 1;}
+    60% { opacity: .5;}
+    80% {opacity: 1;}
+    100% {opacity: 0;}
 }
 
 /* .scale-up-cloud {

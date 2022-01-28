@@ -11,29 +11,42 @@ import { TopicMetadataComponent } from '../topic-metadata/topic-metadata.compone
 })
 export class WordComponent implements OnInit {
 
+  // sets child's side of parent-child property binding
   @Input() topic!: Topic; 
   
+  // came up with a solution where indexes hols the information for individual componenet's styling
+  // and is assigned to template so that it triggers the right CSS selector
   public fontSizeIndex: number = 0;
-  public textColor: 'red' | 'green' | 'grey' = 'grey';
   public randomPositioningIndex: string = '0';
+
+  // sets color of the text
+  public textColor: 'red' | 'green' | 'grey' = 'grey';
+  
 
 
   constructor(
     private dataHandler: DataHandlerService
   ) { }
+
  
   ngOnInit(): void {
     
    
     if(this.topic) {
       
-      this.determineVolume();
+      this.determineFontSizeAndPositioningIndex();
 
-      this.determineSentimentalScore();
+      this.determineTextColor();
     }    
   }
 
-
+  /**
+   * @usageNotes
+    This function will set metadata information regarding clicked topic.
+    Metada must hold defined value of all three sentiment's properties.
+    I added color information to metadata to improve appereance.
+    After metadata is set, function will pass that information to DataHandlerService's stream  
+   */
   transferMetadata() {
     const metadata: Metadata = {
       label: this.topic.label,
@@ -51,13 +64,16 @@ export class WordComponent implements OnInit {
   }
 
 
-  // auxiliary methods used to determine topic's sentimental score & volume
+  // auxiliary methods used to determine topic's features
 
 
-  // checks popularity of each topic and gives it a proper font size index
-  // and assigns value for random positioning of smaller words
+  /**
+   * @usageNotes 
+   * determines and assigns right fontSizeIndex and randomPositioningIndex (for smaller font sized elements).
+   * randomPositioningIndex is giving random Y offset to improve layout
+   */
 
-  determineVolume() {
+  determineFontSizeAndPositioningIndex() {
     
     if(this.topic.volume >= 5 && this.topic.volume < 10) {
       this.fontSizeIndex = 1;
@@ -81,12 +97,14 @@ export class WordComponent implements OnInit {
     else {
       this.randomPositioningIndex = Math.floor(Math.random() * -100).toString();
     }
-    // console.log(this.topic)
   }
 
-    //checks sentimental score and assigns color accordingly
+  /**
+   * @usageNotes
+   * determines and assigns color to the text
+   */
 
-  determineSentimentalScore() {
+  determineTextColor() {
 
       if(this.topic.sentimentScore > 60) {
         this.textColor = 'green';
@@ -94,7 +112,6 @@ export class WordComponent implements OnInit {
       else if(this.topic.sentimentScore < 40) {
         this.textColor = 'red'
       }
-      // console.log(this.textColor, this.topic.sentimentScore)
   
   }
 

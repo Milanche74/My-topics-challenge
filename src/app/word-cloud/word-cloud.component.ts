@@ -11,13 +11,16 @@ import { MessageService } from '../message.service';
 export class WordCloudComponent implements OnInit {
 
   public topics: Topic[] = [];
+  
+  // this property will recieve information on what element has been clicked
   public selectedTopic?: Topic;
 
-  public scaleUpCloud: boolean = false;
 
+
+  // onInit will request data from server and shuffle data when it responds 
   ngOnInit(): void {
     this.dataHandler.getData()
-    .subscribe(data => {
+    .subscribe((data: Topic[]) => {
       this.topics = this.shuffleArray(data);
       // console.log(data)
       
@@ -25,8 +28,13 @@ export class WordCloudComponent implements OnInit {
   }
 
   
-  //Fisher-Yates Shuffle method
-  shuffleArray(array: any[]): Topic[] {
+  /**
+   * Fisher-Yates shuffle method
+   * 
+   * @param {Topic[]} array to be shuffled
+   * @returns {Topic[]} shuffled array
+   */
+  shuffleArray(array: Topic[]): Topic[] {
     let currentIndex = array.length; 
     let randomIndex;
 
@@ -45,6 +53,8 @@ export class WordCloudComponent implements OnInit {
 
   }
 
+  
+  // passes information on which element has been clicked to property
   selectTopic(topic:Topic) {
     this.selectedTopic = topic;
   }
