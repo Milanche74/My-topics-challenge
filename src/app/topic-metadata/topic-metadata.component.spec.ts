@@ -44,9 +44,10 @@ describe('TopicMetadataComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(TopicMetadataComponent);
     component = fixture.componentInstance;
+  
     // labelDebugElement = fixture.debugElement.query(By.css('metadata-header'));
 
-    component.metadata = mockMetadata;
+    
   });
 
   it('should create', () => {
@@ -54,15 +55,28 @@ describe('TopicMetadataComponent', () => {
   });
 
   it('should show correct background color of the header', ()=>{
+    component.metadata = mockMetadata;
     fixture.detectChanges();
 
-    const labelDebugElement: DebugElement = fixture.debugElement;
-    const labelDe = labelDebugElement.query(By.css('.metadata-header'));
+     const debugEl: DebugElement = fixture.debugElement; 
+    const labelDe = debugEl.query(By.css('.metadata-header'));
     const label: HTMLElement = labelDe.nativeElement;
     const bgColor: string = label.style.backgroundColor;
     
     
     expect(bgColor).toContain('red');
+
+  })
+  it('should display placeholder if metadata is not set',()=> {
+    component.metadata = null;
+
+    fixture.detectChanges();
+    component.metadata = null;
+    const debugEl: DebugElement = fixture.debugElement
+    const placeholderDe = debugEl.query(By.css('.placeholder'));
+    const placeholderEl = HTMLElement = placeholderDe.nativeElement;
+
+    expect(placeholderEl?.textContent).toContain('desired topic');
 
   })
   
