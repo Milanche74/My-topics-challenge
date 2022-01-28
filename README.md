@@ -16,8 +16,8 @@ Each topic label is presented by word component and all of them are hosted by wo
 On initializing and via data-handler-service, word-cloud component requests data from server a binds its data to 
 child components (word components). 
 
-Each word component is responsible for assertaining specific properties of each topic and assigning proper styling to the element. There are 6 posible font sizes depending on topics popularity and 3 possible text colors depending on the sentiment score. 
-User can get information regarding each topic's popularity and sentiment values by clicking a topic label. Word component than passes that metadata to data-handler-service which streams that value to matadata component. Initialy, metadata component display short instruction on how to get metadata information. 
+Each word component is responsible for ascertaining specific properties of each topic and assigning proper styling to the element. There are 6 possible font sizes depending on topics popularity and 3 possible text colors depending on the sentiment score. 
+User can get information regarding each topic's popularity and sentiment values by clicking a topic label. Word component than passes that metadata to data-handler-service which streams that value to metadata component. Initially, metadata component display short instruction on how to get metadata information. 
 
 Data-handler-service has its own API for dealing with http errors. If server call responds with an error, this service will ensure that observable returns a safe value so that app can keep running and informs message service that there is a message to be displayed. Also, there is an element
 that indicates that content is loading.
